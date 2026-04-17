@@ -31,7 +31,7 @@ async function handleRegister(req, res) {
 
     const hashedPassword = await bycrypt.hash(password, 10);
 
-    const newUser = userModel.create({
+    const newUser = await userModel.create({
         fullName,
         email,
         password: hashedPassword
@@ -127,7 +127,7 @@ async function handlePartnerRegister(req, res) {
 
     const hashedPassword = await bycrypt.hash(password, 10);
 
-    const newUser = partnerModel.create({
+    const newUser = await partnerModel.create({
         fullName,
         email,
         password: hashedPassword
